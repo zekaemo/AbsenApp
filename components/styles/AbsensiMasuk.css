@@ -1,0 +1,10 @@
+.absensi-masuk-container {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    background-color: #fefae0;
+  }
+  input, button {
+    margin: 10px;
+    padding: 10px;
+  }
+  

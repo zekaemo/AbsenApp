@@ -1,20 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import AbsensiMasuk from "./components/AbsensiMasuk";
+import AbsensiKeluar from "./components/AbsensiKeluar";
+import RiwayatAbsensi from "./components/RiwayatAbsensi";
+import './App.css'; // Impor file App.css
 
-export default function App() {
+function App() {
+  // State untuk mengelola tampilan komponen
+  const [currentPage, setCurrentPage] = useState('login'); // default ke halaman login
+
+  // Fungsi untuk menangani navigasi antar komponen
+  const navigateTo = (page) => {
+    setCurrentPage(page);
+  };
+
+  let pageContent;
+  switch (currentPage) {
+    case 'dashboard':
+      pageContent = <Dashboard navigateTo={navigateTo} />;
+      break;
+    case 'absensi-masuk':
+      pageContent = <AbsensiMasuk navigateTo={navigateTo} />;
+      break;
+    case 'absensi-keluar':
+      pageContent = <AbsensiKeluar navigateTo={navigateTo} />;
+      break;
+    case 'riwayat-absensi':
+      pageContent = <RiwayatAbsensi navigateTo={navigateTo} />;
+      break;
+    case 'login':
+    default:
+      pageContent = <Login navigateTo={navigateTo} />;
+      break;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <div className="App">
+      {pageContent}
+    </div>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

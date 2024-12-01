@@ -1,0 +1,16 @@
+.absensi-keluar-container {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    background-color: #faedcd;
+  }
+  input, button {
+    margin: 10px;
+    padding: 10px;
+  }
+  button {
+    background-color: #6a994e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
